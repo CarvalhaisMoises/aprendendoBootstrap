@@ -5,27 +5,32 @@ function mostrarDados() {
     let pressao = document.getElementById("pressao").value;
     let temperatura = document.getElementById("temperatura").value;
     let frequencia = document.getElementById("frequencia").value;
-    let respiracao = document.getElementById("respiracao").value;
+    let saturacao = document.getElementById("saturacao").value;
     let evolucao = document.getElementById("evolucao").value;
     let medicamento = document.getElementById("medicamento").value;
     let dosagem = document.getElementById("dosagem").value;
     let horario = document.getElementById("horario").value;
 
     let resultado = `
-        <h5>Prontuário do Paciente</h5>
-        <strong>Nome:</strong> ${nome} <br>
-        <strong>Idade:</strong> ${idade} <br>
-        <strong>Sexo:</strong> ${sexo} <br>
-        <strong>Pressão:</strong> ${pressao} <br>
-        <strong>Temperatura:</strong> ${temperatura} <br>
-        <strong>Frequência:</strong> ${frequencia} <br>
-        <strong>Respiração:</strong> ${respiracao} <br>
-        <strong>Evolução:</strong> ${evolucao} <br>
-        <strong>Medicamento:</strong> ${medicamento} <br>
-        <strong>Dosagem:</strong> ${dosagem} <br>
-        <strong>Horário:</strong> ${horario}
-    `;
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Nome:</strong> ${nome}</li>
+      <li class="list-group-item"><strong>Idade:</strong>${idade}</li>
+      <li class="list-group-item"><strong>Sexo</strong>${sexo}</li>
+      <li class="list-group-item"><strong>Pressão</strong>${pressao}</li>
+      <li class="list-group-item"><strong>Temperatura</strong> ${temperatura}</li>
+      <li class="list-group-item"><strong>Frequência</strong> ${frequencia}</li>
+      <li class="list-group-item"><strong>Saturação</strong> ${saturacao}</li>
+      <li class="list-group-item"><strong>Evolução</strong> ${evolucao}</li>
+      <li class="list-group-item"><strong>Medicamento</strong>${medicamento}</li>
+      <li class="list-group-item"><strong>Dosagem</strong> ${dosagem}</li>
+      <li class="list-group-item"><strong>Horário</strong> ${horario}</li>
 
-    alert("Prontuário salvo!\n\n" + nome);
-document.getElementById("resultado").innerHTML = resultado;
+        </ul>
+    `;
+    let caixa = document.getElementById("resultado");
+    caixa.querySelector(".card-body").innerHTML = resultado;
+    caixa.classList.remove("d-none");
+
+    let toast = new bootstrap.Toast(document.getElementById('toastSucesso'));
+    toast.show();
 }
